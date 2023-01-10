@@ -10,7 +10,10 @@
         <link rel="stylesheet" href="css/styles.css?v=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://davidlynch.org/projects/maphilight/jquery.maphilight.min.js"></script>
+
         <script type="text/javascript">
+            var sections = {LeftWing:0, RightWing:0, Tail:0, Centre:0, Turret:0, Nose:0, LeftEngine:0, RightEngine:0};
+
             $(function(){
                 $('.map').maphilight({
                     fillColor: '008800',
@@ -21,12 +24,22 @@
 
                 $('.section').click(function(e) {
                     e.preventDefault();
+                    //console.log(this.title);
+                    //console.log(sections[this.title]);
+
                     var data = $(this).mouseout().data('maphilight') || {};
                     data.alwaysOn = !data.alwaysOn;
                     $(this).data('maphilight', data).trigger('alwaysOn.maphilight');
+                    sections[this.title] === 0 ? sections[this.title] = 1 : sections[this.title] = 0;
+                    
                 });
 
                 })
+
+            function displayResults() {
+                
+                document.getElementById("results").innerText = JSON.stringify(sections, null, 4);
+            }    
         </script>
     </head>
     <body>
@@ -47,6 +60,9 @@
             <area class="section" alt="RightEngine" title="RightEngine" href="javascript:void(0);" coords="306,64,310,51,351,41,394,55,396,67,371,69,375,127,350,170,328,120,328,70" shape="poly">
         </map>
 
+        <button onclick="displayResults()">Display Sections Selected</button>
+
+        <div class="results" id="results"></div>
 
         <!--<script src="js/main.js"></script>-->
     </body>
