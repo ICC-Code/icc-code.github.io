@@ -13,6 +13,11 @@
 
         <script type="text/javascript">
             var sections = {LeftWing:0, RightWing:0, Tail:0, Centre:0, Turret:0, Nose:0, LeftEngine:0, RightEngine:0};
+            const SPREADSHEET_ID = '1TOikqYtxjv_R1wcFjXv8zlXImJk7a0eaDCa8Mhfw0gQ';
+            const API_KEY = 'AIzaSyAVPhk8EeKYwm18PVvK1hS9V2ydQT6Uf-E';
+            const CLIENT_ID = '360143297280-vfj9h53i5nsppsomg69hvao9gqfgqfts.apps.googleusercontent.com';
+            const SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
+
 
             $(function(){
                 $('.map').maphilight({
@@ -39,7 +44,29 @@
             function displayResults() {
                 
                 document.getElementById("results").innerText = JSON.stringify(sections, null, 4);
-            }    
+            }
+            
+            function submitResults() {
+                const params = {
+                    spreadsheetId: SPREADSHEET_ID,
+                    range: 'Sheet1',
+                    valueInputOption: 'RAW',
+                    insertDataOption: 'INSERT_ROWS',
+                };
+
+                const valueRangeBody = {
+                    'majorDimension': 'ROWS',
+                    'values': [submissionValues]
+                };
+
+                let request = gapi.client.sheets.spreadsheets.values.append(params, valueRangeBody);
+                request.then(function (response) {
+                    console.log (response.result);
+                }, function (reason) {
+                    console.error('error: ' + reason.result.error.message);
+                });
+            }
+
         </script>
     </head>
     <body>
@@ -64,6 +91,10 @@
 
         <div class="results" id="results"></div>
 
+        <button onclick="submitResults()">Submit</button>
+
         <!--<script src="js/main.js"></script>-->
     </body>
 </html>
+
+
