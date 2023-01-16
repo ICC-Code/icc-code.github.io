@@ -42,11 +42,11 @@ body {
 
 button.right {
     float: right;
-  }
+}
 
 .results {
     width: 90%;
     height: 100%;
     min-height: 760px;
     max-width: 1320px
-  }
+}
