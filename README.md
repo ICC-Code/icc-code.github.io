@@ -1,6 +1,6 @@
 # ICCDigitalDelivery.github.io
 
-[View quiz page](https://iccdigitaldelivery.github.io/index.html)
+[View quiz page](https://iccdigitaldelivery.github.io/plane.html)
 
 [View results page](https://iccdigitaldelivery.github.io/results.html)
 
