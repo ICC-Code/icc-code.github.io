@@ -3,8 +3,7 @@
 [View Site](https://iccdigitaldelivery.github.io)
 
 
-Plane Exercise
-
+##Plane Exercise
 [View quiz page](https://iccdigitaldelivery.github.io/plane.html)
 
 [View results page](https://iccdigitaldelivery.github.io/results.html)
