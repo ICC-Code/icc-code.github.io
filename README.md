@@ -3,7 +3,7 @@
 [View Site](https://icc-code.github.io)
 
 
-##Plane Exercise
+## Plane Exercise
 [View quiz page](https://icc-code.github.io/plane.html)
 
 [View results page](https://icc-code.github.io/results.html)
